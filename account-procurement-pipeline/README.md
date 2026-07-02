@@ -56,6 +56,27 @@ Creates `.venv`, installs deps, installs the vendored tgspyder, and downloads th
 offline translation models. The model download is the only step needing network;
 on an air-gapped box, run it elsewhere and copy `~/.local/share/argos-translate/`.
 
+### Windows (AWS Windows Server)
+
+Prereqs: **Git** and **Python 3.10+** on PATH (`git --version`, `python --version`).
+If missing: `winget install Git.Git` and `winget install Python.Python.3.12`.
+
+```powershell
+git clone https://github.com/assafkip/account-procurement-tools.git
+cd account-procurement-tools\account-procurement-pipeline
+powershell -ExecutionPolicy Bypass -File .\setup.ps1
+```
+
+Authenticate tgspyder once, then run:
+
+```powershell
+.\.venv\Scripts\python.exe -m tgspyder.cli "@admobbygoogleplatform" --chats
+powershell -ExecutionPolicy Bypass -File .\run.ps1 --channels config\channels.txt
+```
+
+`setup.ps1` / `run.ps1` mirror the `.sh` scripts. They call the venv Python
+directly, so you never have to activate the venv.
+
 ### Authenticate tgspyder once
 
 tgspyder logs into Telegram interactively the first time and reuses the session.
