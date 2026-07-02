@@ -1,0 +1,6 @@
+# One Telegram target per line. Blank lines and lines starting with # are ignored.
+# Accepts @handles, https://t.me/name, or https://t.me/+inviteHash for private groups.
+# Example:
+# @some_adsense_market
+# https://t.me/example_channel
+# https://t.me/+AbCdEfGhIjK
